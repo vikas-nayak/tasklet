@@ -1,16 +1,16 @@
 import { defineConfig } from 'drizzle-kit';
 
 export default defineConfig({
-  schema: './src/db/schema.ts',   // Path to your schema
-  out: './drizzle',             // Path to output migrations
-  dialect: 'postgresql',        // Specify PostgreSQL dialect
+  schema: './src/db/schema.ts',
+  out: './drizzle',
+  dialect: 'postgresql',
   dbCredentials: {
-    host: 'ep-dark-mouse-a8dp8smb-pooler.eastus2.azure.neon.tech',  // Neon host
-    user: 'neondb_owner',       // Your username
-    password: 'npg_Cem38shDVpdW', // Your password
-    database: 'neondb',          // Your database name
-    port: 5432,                 // Default PostgreSQL port
-    ssl: { rejectUnauthorized: false },  // For SSL connection (Neon requires this)
+    host: 'ep-dark-mouse-a8dp8smb-pooler.eastus2.azure.neon.tech',
+    user: 'neondb_owner',
+    password: process.env.DB_PASSWORD, // hacker ki mkc
+    database: 'neondb',
+    port: 5432,
+    ssl: { rejectUnauthorized: false },
   },
 });
 

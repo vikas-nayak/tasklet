@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import AuthButtons from "./authButton";
 
 interface Task {
   id: number;
@@ -114,6 +115,7 @@ const CreateTask = () => {
   return (
     <div className="flex justify-center items-start h-screen pt-10">
       <div className="max-w-2xl w-full mx-4">
+      <AuthButtons />
         <div className="bg-gray-100 rounded-lg shadow-md p-6 mb-6">
           <h1 className="text-2xl text-black font-semibold mb-6 text-center">
             {editingTask ? "Edit Task" : "Create Task"}
