@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "../../../db";
-import { tasks } from "../../../db/schema";
+import { db } from "../../../../db";
+import { tasks } from "../../../../db/schema";
 
 export async function POST(req: NextRequest) {
   try {
