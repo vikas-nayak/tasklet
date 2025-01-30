@@ -6,11 +6,17 @@ import { eq } from "drizzle-orm";
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   try {
     const taskId = Number(params.id);
-    const { title, description, priority, dueDate } = await req.json();
+    const { title, description, priority, dueDate, status } = await req.json();
 
     const updatedTask = await db
       .update(tasks)
-      .set({ title, description, priority, dueDate })
+      .set({ 
+        title, 
+        description, 
+        priority, 
+        dueDate, 
+        status // Add status to update fields
+      })
       .where(eq(tasks.id, taskId))
       .returning();
 
@@ -18,23 +24,6 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to update task" },
-      { status: 500 }
-    );
-  }
-}
-
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
-  try {
-    const taskId = Number(params.id);
-
-    await db
-      .delete(tasks)
-      .where(eq(tasks.id, taskId));
-
-    return NextResponse.json({ success: true }, { status: 200 });
-  } catch (error) {
-    return NextResponse.json(
-      { error: "Failed to delete task" },
       { status: 500 }
     );
   }
