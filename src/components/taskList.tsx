@@ -121,10 +121,10 @@ export default function TaskList({ onTaskCreated }: TaskListProps) {
                   </span>
                 </div>
 
-                <p className="text-gray-500 text-sm mb-2">{task.description}</p>
+                <p className="text-gray-500 mr-20 text-sm mb-2">{task.description}</p>
 
-                <div className="flex items-center gap-3 text-gray-500 text-sm">
-                  <span>Status: {task.status}</span>
+                <div className="flex items-center text-gray-500 text-sm">
+                  <span>{task.status}</span>
                   {task.dueDate && <span>Due: {new Date(task.dueDate).toLocaleDateString()}</span>}
                 </div>
 
@@ -163,17 +163,6 @@ export default function TaskList({ onTaskCreated }: TaskListProps) {
                   </Button>
                 </div>
               </div>
-
-              <div className="relative w-16 h-16 flex-shrink-0 rounded-lg">
-                <Image
-                  src={task.image || "https://i.pinimg.com/564x/66/20/de/6620de9864d5aad0c681ec47429d0de4.jpg"}
-                  alt="Task thumbnail"
-                  fill
-                  className="border border-gray-200 rounded-lg"
-                  sizes="80px"
-                />
-              </div>
-
             </div>
           ))}
         </div>
