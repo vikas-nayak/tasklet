@@ -7,7 +7,7 @@ export default defineConfig({
   dbCredentials: {
     host: 'ep-plain-dream-a8wi833s-pooler.eastus2.azure.neon.tech',
     user: 'neondb_owner',
-    password:process.env.DB_PASS, // password from URL
+    password:'npg_FYCxOkb6B2mj', // password from URL
     database: 'neondb',
     port: 5432,
     ssl: { rejectUnauthorized: false }, // for sslmode=require
